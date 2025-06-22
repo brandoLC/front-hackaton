@@ -1,0 +1,92 @@
+/* Estilos globales para la aplicación */
+.app-container {
+  min-height: 100vh;
+}
+
+/* Estilos para tema oscuro */
+html.dark {
+  color-scheme: dark;
+}
+
+/* Utilidades adicionales */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Estilos para notificaciones Toast */
+.toast-container {
+  pointer-events: none;
+}
+
+.toast-container > * {
+  pointer-events: auto;
+}
+
+/* Asegurar que el texto no se desborde */
+.toast-content {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Animaciones mejoradas para toasts */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.toast-enter {
+  animation: slideInRight 0.3s ease-out;
+}
+
+.toast-exit {
+  animation: slideOutRight 0.3s ease-in;
+}
+
+/* Fix para toast notifications */
+app-toast {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+app-toast > div {
+  pointer-events: auto;
+}
+
+/* Asegurar que los toasts no tengan max-width restrictivo */
+.toast-notification {
+  min-width: 320px;
+  max-width: 480px;
+  width: auto;
+}
+
+/* Prevenir text overflow en toasts */
+.toast-notification p {
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
